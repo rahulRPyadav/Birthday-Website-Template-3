@@ -1,60 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const envelope = document.getElementById("envelope");
+  const btnOpen = document.getElementById("open");
+  const btnReset = document.getElementById("reset");
 
-$(document).ready(function () {
-
-  const envelope = $("#envelope");
-  const btnOpen = $("#open");
-  const btnReset = $("#reset");
-
-
-  // Open envelope
   function openEnvelope() {
-
-    envelope
-      .addClass("open")
-      .removeClass("close");
-
+    envelope.classList.add("open");
+    envelope.classList.remove("close");
   }
 
-
-  // Close envelope
   function closeEnvelope() {
-
-    envelope
-      .addClass("close")
-      .removeClass("open");
-
+    envelope.classList.add("close");
+    envelope.classList.remove("open");
   }
 
-
-  // Click envelope
-  envelope.on("click", function () {
-
-    if (envelope.hasClass("close")) {
-      openEnvelope();
-    } else {
-      closeEnvelope();
-    }
-
-  });
-
-
-  // Open button
-  btnOpen.on("click", function (event) {
-
-    event.stopPropagation();
-
-    openEnvelope();
-
-  });
-
-
-  // Close button
-  btnReset.on("click", function (event) {
-
-    event.stopPropagation();
-
-    closeEnvelope();
-
-  });
-
+  envelope.addEventListener("click", openEnvelope);
+  btnOpen.addEventListener("click", openEnvelope);
+  btnReset.addEventListener("click", closeEnvelope);
 });
