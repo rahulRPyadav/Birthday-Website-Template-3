@@ -1,272 +1,951 @@
-#envelope {
+/* ================================
+   RESET
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: relative;
-  width: 280px;
-  height: 180px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-left: auto;
-  margin-right: auto;
-  top: 150px;
-  background-color: #d9534f; /* Warm romantic red */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
 
-.front {
-  position: absolute;
-  width: 0;
-  height: 0;
-  z-index: 3;
-}
+  background:
+    radial-gradient(circle at top, #fff0f5 0%, #fce4ec 35%, #f8d7e5 100%);
 
-.flap {
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-bottom: 82px solid transparent;
-  /* a little smaller */
-  border-top: 98px solid #d9534f; /* Same romantic red */
-  /* a little larger */
-  transform-origin: top;
-  pointer-events: none;
-}
-
-.pocket {
-  border-left: 140px solid #f5a3a2; /* Soft pinkish red for the pocket */
-  border-right: 140px solid #f5a3a2;
-  border-bottom: 90px solid #ff6f61; /* Lighter romantic red */
-  border-top: 90px solid transparent;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-
-.letter {
-  position: relative;
-  background-color: #fff;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 90%;
-  top: 5%;
-  border-radius: 6px;
-  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
   font-family: "Dancing Script", cursive;
 }
 
-.letter:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+/* ================================
+   MAIN PAGE
+================================ */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 5;
+
+  padding: 30px 15px;
 }
 
-.words {
-  position: absolute;
-  left: 10%;
-  width: 80%;
-  height: 14%;
-  background-color: #ffe6e6; /* Light romantic tone */
-}
 
-.words.line1 {
-  top: 10%;
-  font-size: 0.5rem;
-  width: 25%;
-  height: 7%;
-  font-size: 0.7rem;
-}
+/* ================================
+   BACKGROUND HEARTS
+================================ */
 
-.words.line2 {
-  top: 30%;
-  text-align: center;
-  font-size: 1.1rem;
-}
+.bg-hearts {
+  position: fixed;
+  inset: 0;
 
-.words.line3 {
-  top: 50%;
-  font-size: 1.1rem;
-  text-align: center;
-}
+  width: 100%;
+  height: 100%;
 
-.words.line4 {
-  top: 70%;
-  font-size: 1.1rem;
-  text-align: center;
-}
+  overflow: hidden;
 
-.open .flap {
-  transform: rotateX(180deg);
-  transition: transform 0.4s ease, z-index 0.6s;
+  pointer-events: none;
+
   z-index: 1;
 }
 
+.bg-hearts span {
+  position: absolute;
+
+  bottom: -60px;
+
+  font-family: Arial, sans-serif;
+
+  color: rgba(220, 20, 90, 0.25);
+
+  font-size: 22px;
+
+  animation: floatingHeart linear infinite;
+
+  filter: blur(0.2px);
+}
+
+
+/* Different positions */
+
+.bg-hearts span:nth-child(1) {
+  left: 5%;
+  animation-duration: 9s;
+  animation-delay: 0s;
+  font-size: 18px;
+}
+
+.bg-hearts span:nth-child(2) {
+  left: 12%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  font-size: 28px;
+}
+
+.bg-hearts span:nth-child(3) {
+  left: 20%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+  font-size: 16px;
+}
+
+.bg-hearts span:nth-child(4) {
+  left: 28%;
+  animation-duration: 14s;
+  animation-delay: 1s;
+  font-size: 25px;
+}
+
+.bg-hearts span:nth-child(5) {
+  left: 36%;
+  animation-duration: 11s;
+  animation-delay: 5s;
+  font-size: 20px;
+}
+
+.bg-hearts span:nth-child(6) {
+  left: 44%;
+  animation-duration: 13s;
+  animation-delay: 3s;
+  font-size: 30px;
+}
+
+.bg-hearts span:nth-child(7) {
+  left: 52%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+  font-size: 17px;
+}
+
+.bg-hearts span:nth-child(8) {
+  left: 60%;
+  animation-duration: 15s;
+  animation-delay: 2s;
+  font-size: 27px;
+}
+
+.bg-hearts span:nth-child(9) {
+  left: 68%;
+  animation-duration: 11s;
+  animation-delay: 7s;
+  font-size: 20px;
+}
+
+.bg-hearts span:nth-child(10) {
+  left: 76%;
+  animation-duration: 13s;
+  animation-delay: 1s;
+  font-size: 32px;
+}
+
+.bg-hearts span:nth-child(11) {
+  left: 83%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+  font-size: 18px;
+}
+
+.bg-hearts span:nth-child(12) {
+  left: 90%;
+  animation-duration: 14s;
+  animation-delay: 5s;
+  font-size: 25px;
+}
+
+.bg-hearts span:nth-child(13) {
+  left: 15%;
+  animation-duration: 16s;
+  animation-delay: 8s;
+  font-size: 15px;
+}
+
+.bg-hearts span:nth-child(14) {
+  left: 70%;
+  animation-duration: 12s;
+  animation-delay: 9s;
+  font-size: 19px;
+}
+
+.bg-hearts span:nth-child(15) {
+  left: 95%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+  font-size: 23px;
+}
+
+
+@keyframes floatingHeart {
+
+  0% {
+    transform:
+      translateY(0)
+      translateX(0)
+      rotate(0deg)
+      scale(0.7);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translateY(-50vh)
+      translateX(25px)
+      rotate(15deg)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      translateX(-25px)
+      rotate(-15deg)
+      scale(1.2);
+
+    opacity: 0;
+  }
+}
+
+
+/* ================================
+   ENVELOPE WRAPPER
+================================ */
+
+.envlope-wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  perspective: 1000px;
+}
+
+
+/* ================================
+   ENVELOPE
+================================ */
+
+#envelope {
+
+  position: relative;
+
+  width: min(80vw, 420px);
+  aspect-ratio: 1.55 / 1;
+
+  min-width: 260px;
+
+  background-color: #d9534f;
+
+  border-radius: 0 0 10px 10px;
+
+  box-shadow:
+    0 15px 40px rgba(120, 0, 40, 0.22),
+    0 5px 15px rgba(0, 0, 0, 0.12);
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+}
+
+
+/* ================================
+   FRONT
+================================ */
+
+.front {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  z-index: 3;
+}
+
+
+/* ================================
+   FLAP
+================================ */
+
+.flap {
+
+  border-left: calc(min(80vw, 420px) / 2) solid transparent;
+  border-right: calc(min(80vw, 420px) / 2) solid transparent;
+
+  border-bottom: 0 solid transparent;
+
+  border-top: calc(min(80vw, 420px) * 0.35) solid #d9534f;
+
+  transform-origin: top;
+
+  pointer-events: none;
+}
+
+
+/* ================================
+   POCKET
+================================ */
+
+.pocket {
+
+  border-left: calc(min(80vw, 420px) / 2) solid #f5a3a2;
+  border-right: calc(min(80vw, 420px) / 2) solid #f5a3a2;
+
+  border-bottom: calc(min(80vw, 420px) * 0.32) solid #ff6f61;
+
+  border-top: calc(min(80vw, 420px) * 0.32) solid transparent;
+
+  border-radius: 0 0 10px 10px;
+}
+
+
+/* ================================
+   LETTER
+================================ */
+
+.letter {
+
+  position: absolute;
+
+  background-color: #fffdfd;
+
+  width: 86%;
+  height: 86%;
+
+  left: 7%;
+  top: 7%;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.12);
+
+  font-family: "Dancing Script", cursive;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.6s ease,
+    z-index 0.6s ease;
+}
+
+
+/* Paper lines */
+
+.letter::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 29px,
+      rgba(220, 20, 90, 0.08) 30px
+    );
+
+  pointer-events: none;
+}
+
+
+/* ================================
+   WORDS
+================================ */
+
+.words {
+
+  position: absolute;
+
+  left: 10%;
+
+  width: 80%;
+
+  color: #b52b55;
+
+  z-index: 2;
+
+  text-align: center;
+
+  line-height: 1.2;
+}
+
+
+.line1 {
+
+  top: 8%;
+
+  text-align: left;
+
+  font-size: clamp(12px, 2vw, 17px);
+}
+
+
+.line2 {
+
+  top: 34%;
+
+  font-size: clamp(18px, 3vw, 25px);
+}
+
+
+.line3 {
+
+  top: 52%;
+
+  font-size: clamp(18px, 3vw, 25px);
+}
+
+
+.line4 {
+
+  top: 70%;
+
+  font-size: clamp(18px, 3vw, 25px);
+}
+
+
+/* ================================
+   OPEN / CLOSE
+================================ */
+
+.open .flap {
+
+  transform: rotateX(180deg);
+
+  transition:
+    transform 0.5s ease,
+    z-index 0.6s;
+
+  z-index: 1;
+}
+
+
 .close .flap {
+
   transform: rotateX(0deg);
-  transition: transform 0.4s 0.6s ease, z-index 1s;
+
+  transition:
+    transform 0.5s 0.6s ease,
+    z-index 1s;
+
   z-index: 5;
 }
 
+
 .close .letter {
-  transform: translateY(0px);
-  transition: transform 0.4s ease, z-index 1s;
+
+  transform: translateY(0);
+
+  transition:
+    transform 0.5s ease,
+    z-index 1s;
+
   z-index: 1;
 }
 
+
 .open .letter {
-  transform: translateY(-100px);
-  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+
+  transform: translateY(-38%);
+
+  transition:
+    transform 0.6s 0.5s ease,
+    z-index 0.6s;
+
   z-index: 2;
 }
+
+
+/* ================================
+   ENVELOPE FLOATING HEARTS
+================================ */
 
 .hearts {
+
   position: absolute;
-  top: 90px;
+
+  top: 50%;
+
   left: 0;
   right: 0;
-  z-index: 2;
+
+  z-index: 4;
+
+  pointer-events: none;
 }
+
 
 .heart {
+
   position: absolute;
+
   bottom: 0;
-  right: 10%;
+
   pointer-events: none;
 }
 
-.heart:before,
-.heart:after {
-  position: absolute;
+
+.heart::before,
+.heart::after {
+
   content: "";
-  left: 50px;
-  top: 0;
-  width: 50px;
-  height: 80px;
-  background: #e60073; /* Deep romantic pink */
+
+  position: absolute;
+
+  width: 25px;
+  height: 40px;
+
+  background: #e60073;
+
   border-radius: 50px 50px 0 0;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
-  pointer-events: none;
 }
 
-.heart:after {
+
+.heart::before {
+
+  left: 25px;
+
+  transform: rotate(-45deg);
+
+  transform-origin: 0 100%;
+}
+
+
+.heart::after {
+
   left: 0;
+
   transform: rotate(45deg);
+
   transform-origin: 100% 100%;
 }
 
+
 .close .heart {
+
   opacity: 0;
-  -webkit-animation: none;
+
   animation: none;
 }
 
+
 .a1 {
+
   left: 20%;
+
   transform: scale(0.6);
-  opacity: 1;
-  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
-  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
-  -webkit-animation-fill-mode: forwards;
+
+  animation:
+    slideUp 4s linear 1,
+    sideSway 2s ease-in-out 4 alternate;
+
   animation-fill-mode: forwards;
-  -webkit-animation-delay: 0.7s;
+
   animation-delay: 0.7s;
 }
+
 
 .a2 {
+
   left: 55%;
+
   transform: scale(1);
-  opacity: 1;
-  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
-  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
-  -webkit-animation-fill-mode: forwards;
+
+  animation:
+    slideUp 5s linear 1,
+    sideSway 4s ease-in-out 2 alternate;
+
   animation-fill-mode: forwards;
-  -webkit-animation-delay: 0.7s;
+
   animation-delay: 0.7s;
 }
+
 
 .a3 {
+
   left: 10%;
+
   transform: scale(0.8);
-  opacity: 1;
-  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
-  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
-  -webkit-animation-fill-mode: forwards;
+
+  animation:
+    slideUp 7s linear 1,
+    sideSway 2s ease-in-out 6 alternate;
+
   animation-fill-mode: forwards;
-  -webkit-animation-delay: 0.7s;
+
   animation-delay: 0.7s;
 }
 
-@-webkit-keyframes slideUp {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: -600px;
-  }
-}
+
 @keyframes slideUp {
+
   0% {
     top: 0;
   }
+
   100% {
-    top: -600px;
+    top: -500px;
   }
-}
-@-webkit-keyframes sideSway {
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 50px;
-  }
-}
-@keyframes sideSway {
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 50px;
-  }
-}
-body {
-  background-color: #f0e6f6; /* Soft lavender for a romantic, dreamy feel */
 }
 
-.envlope-wrapper {
-  height: 380px;
+
+@keyframes sideSway {
+
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: 50px;
+  }
 }
+
+
+/* ================================
+   NAME
+================================ */
+
+.kanu {
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  width: 100%;
+
+  text-align: center;
+
+  color: #d9534f;
+
+  pointer-events: none;
+}
+
+
+.kanu h3 {
+
+  font-size: clamp(16px, 3vw, 23px);
+
+  font-weight: 700;
+
+  margin: 0;
+
+  text-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
 
 .reset {
-  text-align: center;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 45px;
+
+  position: relative;
+
+  z-index: 10;
 }
+
 
 .reset button {
-  font-weight: 800;
-  font-style: normal;
-  transition: all 0.1s linear;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: solid 2px #d9534f;
-  border-radius: 4px;
-  color: #d9534f;
-  display: inline-block;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin: 5px;
-  padding: 10px;
-  line-height: 1em;
-  text-decoration: none;
+
   min-width: 120px;
+
+  padding: 11px 20px;
+
+  border: 2px solid #d9534f;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  backdrop-filter: blur(5px);
+
+  color: #d9534f;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
   cursor: pointer;
+
+  transition: all 0.25s ease;
 }
+
 
 .reset button:hover {
-  background-color: #d9534f;
-  color: #fff;
+
+  background: #d9534f;
+
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(217, 83, 79, 0.25);
 }
 
-.kanu{
-  color: #d9534f;
-  margin-left:180px;
-  margin-top: 20px;
+
+.reset button:active {
+
+  transform: scale(0.96);
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+
+  .page {
+    padding: 25px 12px;
+  }
+
+  #envelope {
+    width: min(82vw, 380px);
+  }
+
+  .open .letter {
+    transform: translateY(-34%);
+  }
+
+  .reset {
+    margin-top: 40px;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  body {
+    min-height: 100svh;
+  }
+
+  .page {
+
+    min-height: 100svh;
+
+    padding:
+      20px
+      12px
+      30px;
+  }
+
+
+  .envlope-wrapper {
+
+    width: 100%;
+  }
+
+
+  #envelope {
+
+    width: 88vw;
+
+    min-width: 250px;
+
+    max-width: 350px;
+
+    aspect-ratio: 1.5 / 1;
+  }
+
+
+  .flap {
+
+    border-left-width: 44vw;
+    border-right-width: 44vw;
+
+    border-top-width: 31vw;
+  }
+
+
+  .pocket {
+
+    border-left-width: 44vw;
+    border-right-width: 44vw;
+
+    border-bottom-width: 29vw;
+    border-top-width: 29vw;
+  }
+
+
+  .letter {
+
+    width: 84%;
+
+    left: 8%;
+
+    height: 84%;
+
+    top: 8%;
+  }
+
+
+  .line1 {
+    font-size: 12px;
+  }
+
+
+  .line2,
+  .line3,
+  .line4 {
+
+    font-size: clamp(15px, 4.2vw, 20px);
+
+    line-height: 1.15;
+  }
+
+
+  .kanu {
+
+    bottom: 8px;
+  }
+
+
+  .kanu h3 {
+
+    font-size: 17px;
+  }
+
+
+  .reset {
+
+    margin-top: 35px;
+
+    gap: 8px;
+  }
+
+
+  .reset button {
+
+    min-width: 105px;
+
+    padding: 10px 15px;
+
+    font-size: 12px;
+  }
+
+
+  .bg-hearts span {
+
+    opacity: 0.22;
+  }
+}
+
+
+/* ================================
+   VERY SMALL MOBILE
+================================ */
+
+@media (max-width: 350px) {
+
+  #envelope {
+
+    width: 90vw;
+
+    min-width: 230px;
+  }
+
+
+  .reset {
+
+    margin-top: 30px;
+  }
+
+
+  .reset button {
+
+    min-width: 95px;
+
+    padding: 9px 12px;
+  }
+
+
+  .line2,
+  .line3,
+  .line4 {
+
+    font-size: 14px;
+  }
+
+
+  .kanu h3 {
+
+    font-size: 15px;
+  }
+}
+
+
+/* ================================
+   REDUCE MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
 }

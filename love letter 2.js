@@ -1,22 +1,60 @@
+
 $(document).ready(function () {
-  var envelope = $("#envelope");
-  var btn_open = $("#open");
-  var btn_reset = $("#reset");
 
-  envelope.click(function () {
-    open();
-  });
-  btn_open.click(function () {
-    open();
-  });
-  btn_reset.click(function () {
-    close();
+  const envelope = $("#envelope");
+  const btnOpen = $("#open");
+  const btnReset = $("#reset");
+
+
+  // Open envelope
+  function openEnvelope() {
+
+    envelope
+      .addClass("open")
+      .removeClass("close");
+
+  }
+
+
+  // Close envelope
+  function closeEnvelope() {
+
+    envelope
+      .addClass("close")
+      .removeClass("open");
+
+  }
+
+
+  // Click envelope
+  envelope.on("click", function () {
+
+    if (envelope.hasClass("close")) {
+      openEnvelope();
+    } else {
+      closeEnvelope();
+    }
+
   });
 
-  function open() {
-    envelope.addClass("open").removeClass("close");
-  }
-  function close() {
-    envelope.addClass("close").removeClass("open");
-  }
+
+  // Open button
+  btnOpen.on("click", function (event) {
+
+    event.stopPropagation();
+
+    openEnvelope();
+
+  });
+
+
+  // Close button
+  btnReset.on("click", function (event) {
+
+    event.stopPropagation();
+
+    closeEnvelope();
+
+  });
+
 });
